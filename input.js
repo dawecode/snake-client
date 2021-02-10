@@ -1,21 +1,18 @@
 let connection;
 
-
-
-
 /**
- * Setup User Interface 
+ * Setup User Interface
  * Specifically, so that we can handle user input via stdin
  */
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
 
-  // handling CTRL + C USER INPUT 
-  const handlerUserInput = function () {
+  // handling CTRL + C USER INPUT
+  const handlerUserInput = function() {
     stdin.on('data', (key) => {
       if (key === '\u0003') {
         process.stdout.write('Terminated');
@@ -23,7 +20,7 @@ const setupInput = function (conn) {
         process.exit();
       }
       if (key === 'w') {
-          conn.write('Move: up');
+        conn.write('Move: up');
       }
       if (key === 'a') {
         conn.write('Move: left');
@@ -37,10 +34,13 @@ const setupInput = function (conn) {
       if (key === 'h') {
         conn.write('Say: You got it dude !');
       }
+      if (key === 'l') {
+        conn.write('Say: LooOOoooser !');
+      }
     });
-  }
+  };
   handlerUserInput();
   return stdin;
-}
+};
 
 module.exports = { setupInput };
