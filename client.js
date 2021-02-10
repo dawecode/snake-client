@@ -19,11 +19,11 @@ const connect = function () {
   });
   //move up
   //conn.on('connect', () => {
-    //conn.write('Move: up')
+  // conn.write('Move: up')
   //});
   //conn.on('connect', () => {
-   // conn.write('Move: down')
- // });
+  // conn.write('Move: down')
+  // });
 
   // quit message
   conn.on('data', (data) => {
@@ -33,4 +33,4 @@ const connect = function () {
   return conn;
 };
 
-module.exports = connect;
+module.exports = { connect };
