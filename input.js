@@ -34,6 +34,9 @@ const setupInput = function (conn) {
       if (key === 'd') {
         conn.write('Move: right');
       }
+      if (key === 'h') {
+        conn.write('Say: You got it dude !');
+      }
     });
   }
   handlerUserInput();
